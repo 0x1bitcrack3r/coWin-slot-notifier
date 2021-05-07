@@ -1,6 +1,7 @@
 name: covid-vaccine-notifier
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: "*/1 * * * *" #runs for every 8hrs
 
