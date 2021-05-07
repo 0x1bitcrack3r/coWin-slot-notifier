@@ -1,4 +1,4 @@
-name: py
+name: covid-vaccine-notifier
 
 on:
   schedule:
