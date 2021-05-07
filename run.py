@@ -38,7 +38,6 @@ headers['accept'] = 'application/json'
 http = urllib3.PoolManager(ca_certs=certifi.where())
 
 def telegram_bot_sendtext(bot_message):
-    print (bot_message)
     params = {'chat_id':CHAT_ID, 'text': str(bot_message)}
     response = requests.post(telegram_url.format(TOKEN), data=params)
     print (response)
@@ -69,7 +68,7 @@ for INP_DATE in date_str:
                             slots=','.join(session['slots'])
                             age_limit=session['min_age_limit']
                             message=f"Name:{center_name}\nAddress:{address}\nDate:{vaccine_date}\nCapacity:{available_capacity}\nVaccine Name:{vaccine_name}\nSlots:{slots}\nFee Type:{fee_type}\nAge Limit:{age_limit}\n\n"
-                            telegram_bot_sendtext(message)
                             print(vaccine_name)
+                            #telegram_bot_sendtext(message)
     except:
         print ("Try again")

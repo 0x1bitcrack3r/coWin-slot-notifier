@@ -21,6 +21,7 @@ jobs:
           pip3 install -r requirements.txt
       - name: execute py script of age limit 18 # run the run.py to get the latest data
         run: |
+          echo ${PINCODE}
           python3 run.py -t ${TOKEN} -c ${CHAT_ID_18} -p ${PINCODE} -s 4 -a 18
         env:
           TOKEN: ${{ secrets.TOKEN }}
