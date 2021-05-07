@@ -21,7 +21,7 @@ jobs:
           pip3 install -r requirements.txt
       - name: execute py script of age limit 18 # run the run.py to get the latest data
         run: |
-          TOKEN=${{ secrets.TOKEN }} CHAT_ID_18=${{ secrets.CHAT_ID_18 }} CHAT_ID_45=${{ secrets.CHAT_ID_45 }} PINCODE=${{ secrets.PINCODE }} python run.py -s 4 -a 18
+          TOKEN=${{ secrets.TOKEN }} CHAT_ID_18=${{ secrets.CHAT_ID_18 }} CHAT_ID_45=${{ secrets.CHAT_ID_45 }} PINCODE=${{ secrets.PINCODE }} python3 run.py -s 4 -a 18
         env:
           TOKEN: ${{ secrets.TOKEN }}
           CHAT_ID_18: ${{ secrets.CHAT_ID_18 }}
@@ -29,7 +29,7 @@ jobs:
           PINCODE: ${{ secrets.PINCODE }}
       - name: execute py script of age limit 45 # run the run.py to get the latest data
         run: |
-          TOKEN=${{ secrets.TOKEN }} CHAT_ID_18=${{ secrets.CHAT_ID_18 }} CHAT_ID_45=${{ secrets.CHAT_ID_45 }} PINCODE=${{ secrets.PINCODE }} python run.py -s 4 -a 45
+          TOKEN=${{ secrets.TOKEN }} CHAT_ID_18=${{ secrets.CHAT_ID_18 }} CHAT_ID_45=${{ secrets.CHAT_ID_45 }} PINCODE=${{ secrets.PINCODE }} python3 run.py -s 4 -a 45
         env:
           TOKEN: ${{ secrets.TOKEN }}
           CHAT_ID_18: ${{ secrets.CHAT_ID_18 }}
