@@ -5,26 +5,34 @@ import certifi
 import json
 import telegram
 import getopt,sys
+import os
 
-options = "t:c:p:s:a:"
-long_options = ['token=','chatid=','pincode=','slotsrange=','agelimit=']
+options = "s:a:"
+long_options = ['slotsrange=','agelimit=']
 
 argumentList = sys.argv[1:]
 try:
     arguments, values = getopt.getopt(argumentList, options, long_options)
     for currentArgument, currentValue in arguments:
-        if currentArgument in ('-t', '--token'):
-            TOKEN=str(currentValue)   
-        elif currentArgument in ('-c', '--chatid'):
-            CHAT_ID=currentValue
-        elif currentArgument in ('-p', '--pincode'):
-            PINCODE=str(currentValue)
-        elif currentArgument in ('-s','--slotsrange'):
+        # if currentArgument in ('-t', '--token'):
+        #     TOKEN=currentValue  
+        # elif currentArgument in ('-c', '--chatid'):
+        #     CHAT_ID=int(currentValue)
+        # elif currentArgument in ('-p', '--pincode'):
+        #     PINCODE=currentValue
+        if currentArgument in ('-s','--slotsrange'):
             SLOTS_FOR_NEXT_NUMBER_OF_DAYS=int(currentValue)
         elif currentArgument in ('-a','--agelimit'):
             AGE_LIMIT=int(currentValue)     
 except getopt.error as err:
     print (str(err))
+
+TOKEN = str(os.environ['TOKEN'])
+if AGE_LIMIT>18:
+    CHAT_ID=int(os.environ['CHAT_ID_45'])
+else:
+    CHAT_ID=int(os.environ['CHAT_ID_18'])
+PINCODE=os.environ['PINCODE']
 
 
 base_url="https://cdn-api.co-vin.in/api/v2/"
