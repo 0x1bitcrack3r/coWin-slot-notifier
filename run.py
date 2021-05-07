@@ -25,7 +25,6 @@ try:
             AGE_LIMIT=int(currentValue)     
 except getopt.error as err:
     print (str(err))
-print(PINCODE)
 
 
 base_url="https://cdn-api.co-vin.in/api/v2/"
@@ -68,7 +67,6 @@ for INP_DATE in date_str:
                             slots=','.join(session['slots'])
                             age_limit=session['min_age_limit']
                             message=f"Name:{center_name}\nAddress:{address}\nDate:{vaccine_date}\nCapacity:{available_capacity}\nVaccine Name:{vaccine_name}\nSlots:{slots}\nFee Type:{fee_type}\nAge Limit:{age_limit}\n\n"
-                            print(vaccine_name)
-                            #telegram_bot_sendtext(message)
+                            telegram_bot_sendtext(message)
     except:
         print ("Try again")
