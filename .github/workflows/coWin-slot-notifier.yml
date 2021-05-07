@@ -17,6 +17,7 @@ jobs:
           python-version: 3.8 #install the python needed
       - name: execute py script of age limit 18 # run the run.py to get the latest data
         run: |
+          pip3 install -r requirements.txt
           python3 run.py -t 'import os;print(os.environ['TOKEN'])' -c 'import os;print(os.environ['CHAT_ID_18'])' -p 'import os;print(os.environ['PINCODE'])' -s 4 -a 18
         env:
           TOKEN: ${{ secrets.TOKEN }}

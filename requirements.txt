@@ -1,0 +1,5 @@
+requests
+telegram
+certifi
+urllib3
+datetime
