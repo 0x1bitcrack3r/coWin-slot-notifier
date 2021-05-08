@@ -59,7 +59,6 @@ for INP_DATE in date_str:
     request_url=find_by_pincode.format(PINCODE, INP_DATE)
     try:
         req = http.request('GET',request_url,headers = headers)
-        telegram_bot_sendtext("Test")
         content = req.data
         if (req.status==200) and ('centers' in json.loads(content.decode('utf-8'))):
             resp_json = json.loads(content.decode('utf-8'))['centers']
